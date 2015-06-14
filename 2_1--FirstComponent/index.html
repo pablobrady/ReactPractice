@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>First Component</title>
+</head>
+
+<body>
+  <!-- container node -->
+  <div id="app"></div>
+
+  <!-- fetch react library -->
+  <script src="http://fb.me/react-0.11.1.js"></script>
+  <!-- fetch the JSX library -->
+  <script src="http://fb.me/JSXTransformer-0.11.1.js"></script>
+
+  <script type="text/jsx">
+    /** @jsx React.DOM */
+
+    // create a class, but not displying now
+    var MessageBox = React.createClass({
+      //it must have the render method
+      render: function() {
+        // JSX tag inside javascript
+        // notice cannot return more than 1 node
+        // but can have a div wrap everything
+        return (
+          <h1>Hello, World</h1>
+        );
+      }
+    });
+
+    // now render the component
+    React.renderComponent(
+      <MessageBox />, // what
+      document.getElementById('app'), // where
+      function() { // cb function
+        console.log('after render'); 
+      }
+    )
+  </script>
+</body>
+</html>
